@@ -1,34 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-
+import { useState } from "react";
+import { PayButton } from "./components/PayButton";
 function App() {
-  const [count, setCount] = useState(0)
-
+  const preference = {
+    items: [
+      {
+        id: "item-ID-14534",
+        title: "nada",
+        currency_id: "CLP",
+        description: "Descripción del Item",
+        quantity: 5,
+        unit_price: 250,
+      },
+      {
+        id: "item-ID-564748",
+        title: "titulo del producto",
+        currency_id: "CLP",
+        description: "Descripción del Item",
+        quantity: 3,
+        unit_price: 1500,
+      },
+    ],
+    payer: {
+      name: "El Chile",
+      surname: "Surname",
+      email: "argentino@email.com",
+      phone: {
+        area_code: "56",
+        number: 44444444,
+      },
+      identification: {
+        type: "DNI",
+        number: "",
+      },
+      address: {
+        street_name: "Street",
+        street_number: 123,
+        zip_code: "5700",
+      },
+    },
+    shipments: {
+      cost: 3000,
+    },
+  };
+  const shipment = {
+    address: {
+      street_name: "Antupiren",
+      street_number: 400,
+      city: "Santiago",
+    },
+    cost: 3000,
+  };
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <PayButton preference={preference} shipment={shipment} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

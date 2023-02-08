@@ -12,6 +12,7 @@ router.post("/", async (req, res, next) => {
         const order = req.body
         const preferenceId = await service.createPreference(order)
         res.json(preferenceId)
+        console.log(preferenceId)
         
     } catch (error) {
         next(error)
