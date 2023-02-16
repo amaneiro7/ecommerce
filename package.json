@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:all":"pnpm --filter './apps/*' run dev"
+    "dev:all":"pnpm --filter './apps/*' run dev",
+    "dev:react":"pnpm --filter api --filter react run dev",
+    "dev:vanilla":"pnpm --filter api --filter vanilla run dev"
   },
   "keywords": [],
   "author": "",
