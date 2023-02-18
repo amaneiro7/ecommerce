@@ -12,7 +12,7 @@ jobs:
     container:
       image: node:16
     services:
-      postgres-e2e:
+      mongo-e2e:
         image: mongo
         ports:
           - 27017:27017
