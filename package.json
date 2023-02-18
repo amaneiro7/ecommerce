@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:all":"pnpm --filter './apps/*' run dev",
     "dev:react":"pnpm --filter api --filter react run dev",
-    "dev:vanilla":"pnpm --filter api --filter vanilla run dev"
+    "dev:vanilla":"pnpm --filter api --filter vanilla run dev",
+    "api:e2e:ci": "pnpm --filter api run e2e:ci"
   },
   "keywords": [],
   "author": "",

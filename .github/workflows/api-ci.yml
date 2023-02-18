@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
       - name: run e2e
-        run: pnpm run e2e:ci
+        run: pnpm run api:e2e:ci
         env:
           PORT: 3000
           DATABASE_URL: mongodb://root:example@mongo-e2e:27017
