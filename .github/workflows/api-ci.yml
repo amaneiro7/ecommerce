@@ -36,5 +36,5 @@ jobs:
         run: pnpm run api:e2e:ci
         env:
           PORT: 3000
-          DATABASE_URL: mongodb://root:example@mongo-e2e:27017
+          MONGODB_URI: mongodb://root:example@mongo-e2e:27017
           MP_ACCESS_TOKEN: TEST-5199842434038646-112016-f1b101241e2334f0161872a681e1f310-671571646
