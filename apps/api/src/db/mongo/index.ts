@@ -4,9 +4,9 @@ import { config } from "../../config";
 async function dbConnection() {
     try {
         await mongoose.connect(config.mongodbUri)
-        console.log(`[db-connection]: connection succesfull`);
+        console.log(`[mongodb]: connection succesfull`);
     } catch (error) {
-        console.log(`[db-connection]: connection problems ${error}`);
+        console.log(`[mongodb]: connection problems ${error}`);
     }
 }
 
