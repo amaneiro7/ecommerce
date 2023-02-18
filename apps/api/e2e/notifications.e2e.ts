@@ -12,12 +12,15 @@ describe('test', () => {
         api = request(app)
         
     })
-    describe('GET hello world',  () => {
+    describe('POST notification_url',  () => {
         test('should be statusCode 200', async () => {
             // arrange
-            
+            const message = {
+                payer:"Diego",
+                type:"payment"
+            }
             //act
-            const response:any = await api?.get('/')
+            const response:any = await api?.post('/api/notification_url')
             //assertion
             
             expect(response.statusCode).toBe(200)

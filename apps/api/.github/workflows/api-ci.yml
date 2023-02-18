@@ -1,0 +1,36 @@
+name: API-CI
+
+on:
+  push:
+    branches: ['*']
+  pull_request:
+    branches: [main,master]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    container:
+      image: node:16
+    services:
+      postgres-e2e:
+        image: mongo
+        ports:
+          - 27017:27017
+        env:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example
+
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+      - name: run e2e
+        run: pnpm run e2e:ci
+        env:
+          PORT: 3000
+          DATABASE_URL: mongodb://root:example@mongo-e2e:27017
+          MP_ACCESS_TOKEN: TEST-5199842434038646-112016-f1b101241e2334f0161872a681e1f310-671571646
