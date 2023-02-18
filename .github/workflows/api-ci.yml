@@ -28,6 +28,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Install pnpm
         uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
       - name: run e2e
