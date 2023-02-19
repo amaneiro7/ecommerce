@@ -1,8 +1,8 @@
 import { Shipment } from "./shipment.model";
 export interface Preference {
-    items:Item[],
-    payer:Payer,
-    shipments: {
+    items?:Item[],
+    payer?:Payer,
+    shipments?: {
         cost: Shipment['cost']
         mode?: string
     }

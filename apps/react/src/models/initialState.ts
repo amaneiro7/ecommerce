@@ -1,0 +1,46 @@
+import { Order } from "./order.model";
+
+export const order: Order = {
+  preference: {
+    payer: {
+      name: "john",
+      surname: "doe",
+      email: "john@mail.com",
+      address: {
+        street_name: "Antupiren",
+        street_number: 400,
+        zip_code: "170000",
+      },
+      identification: {
+        type: "CI",
+        number: "",
+      }
+    },
+    items: [
+      {
+        id: "item-ID-14534",
+        title: "nada",
+        currency_id: "CLP",
+        description: "Descripción del Item",
+        quantity: 5,
+        unit_price: 250,
+      },
+      {
+        id: "item-ID-564748",
+        title: "titulo del producto",
+        currency_id: "CLP",
+        description: "Descripción del Item",
+        quantity: 3,
+        unit_price: 1500,
+      }
+    ],
+
+    shipments: {
+      cost: 5000,
+    },
+  },
+  shipment: {
+    provider:"chilexpress",
+    cost: 5000
+  },
+};
