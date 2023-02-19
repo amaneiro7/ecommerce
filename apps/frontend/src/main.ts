@@ -1,6 +1,5 @@
 import { config } from "./config";
 import { Order } from "./models/order.model";
-import { Preference } from "./models/preference.model";
 import { order } from "./initialState";
 
 import "./style.css";
@@ -90,7 +89,7 @@ renderShipment()
 
 
 const payButton = document.querySelector("#paybutton") as HTMLButtonElement;
-payButton.addEventListener("click", async (event: Event) => {
+payButton.addEventListener("click", async () => {
   const preferenceId = await getPreferenceId({ preference, shipment });
   const mp = new window.MercadoPago(config.mpPublicKey, {
     locale: "es-CL",
