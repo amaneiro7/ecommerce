@@ -1,8 +1,8 @@
 import { Shipment } from "./shipment.model";
 export interface Preference {
-    items:Item[],
-    payer:Payer,
-    shipments: {
+    items?:Item[],
+    payer?:Payer,
+    shipments?: {
         cost: Shipment['cost']
         mode?: string
     }
@@ -35,7 +35,7 @@ export interface Address {
 
 export interface Phone {
     area_code: string;
-    number:   string | number;
+    number:   number;
 }
 
 export interface PreferenceId{

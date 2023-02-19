@@ -29,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: #5AD2FF;
 }
 
 h1 {
@@ -94,4 +95,41 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+#paybutton {
+  width: fit-content;
+  height: fit-content;
+}
+
+
+@media (min-width: 760px) {
+  #app{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+    place-items: center;
+  }  /* … */
+}
+
+.product-container > div{
+  display: flex;
+  flex-direction: column;
+}
+
+/* footer and body */
+body{
+  display: flex;
+  flex-direction: column;
+}
+
+footer{
+  width: 100%;
+  background: papayawhip;
+  align-self: flex-start;
+}
+footer >div{
+
+  padding: 20px 40px;
+  max-width: 280px;
 }

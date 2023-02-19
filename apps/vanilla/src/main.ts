@@ -1,68 +1,74 @@
-import { config } from './config'
-import { Order } from './models/order.model';
-import './style.css'
-const preference = {
-  items: [
-    {
-      id: "item-ID-14534",
-      title: "nada",
-      currency_id: "CLP",
-      description: "Descripción del Item",
-      quantity: 5,
-      unit_price: 250,
-    },
-    {
-      id: "item-ID-564748",
-      title: "titulo del producto",
-      currency_id: "CLP",
-      description: "Descripción del Item",
-      quantity: 3,
-      unit_price: 1500,
-    },
-  ],
-  payer: {
-    name: "El Chile",
-    surname: "Surname",
-    email: "argentino@email.com",
-    phone: {
-      area_code: "56",
-      number: 44444444,
-    },
-    identification: {
-      type: "DNI",
-      number: "",
-    },
-    address: {
-      street_name: "Street",
-      street_number: 123,
-      zip_code: "5700",
-    },
-  },
-  shipments: {
-    cost: 3000,
-  },
-};
-const shipment = {
-  address: {
-    street_name: "Antupiren",
-    street_number: 400,
-    city: "Santiago",
-  },
-  cost: 3000,
-};
+import { config } from "./config";
+import { Order } from "./models/order.model";
+import { Preference } from "./models/preference.model";
+import { order } from "./initialState";
+
+import "./style.css";
+
 declare global {
   interface Window {
     MercadoPago: any;
   }
 }
 
-const mp_script = document.createElement('script')
-mp_script.src = config.libraryUri
-document.head.append(mp_script)
+const mp_script = document.createElement("script");
+mp_script.src = config.libraryUri;
+document.head.append(mp_script);
 
-const getPreferenceId = async (order:Order) => {
+const { preference, shipment } = order;
+
+// render Product detail
+
+const renderProductsDetail = () => {
+  const productsDetail = document.createElement("div");
+  productsDetail.className = 'product-container'
+  const { items } = preference;
+  items?.forEach((item) => {
+    const container = document.createElement("div");
+    const img = document.createElement("img");
+    img.alt = item.title;
+    const title = document.createElement("h4");
+    title.textContent = item.title;
+    const price = document.createElement("span");
+    price.textContent = `Price: ${item.unit_price.toString()}`;
+    const quantity = document.createElement("span");
+    quantity.textContent = `Quantity: ${item.quantity.toString()}`;
+    container.append(img, title, price, quantity);
+    productsDetail.append(container);
+  });
+  document.querySelector("#products-detail")?.append(productsDetail);
+};
+
+const renderPayerInfo = () => {
+  const { payer } = preference;
+
+  const container = document.createElement("div");
+  const name = document.createElement("span");
+  name.textContent = payer?.name as string;
+  const email = document.createElement("h5");
+  email.textContent = payer?.email as string;
+  const phone = document.createElement("h5");
+  phone.textContent = `${payer?.phone?.area_code} ${payer?.phone?.number}`;
+  container.append(name, email, phone);
+
+  document.querySelector("#customer-info")?.append(container);
+};
+
+const renderShipment = () => {
+  const container = document.createElement('div')
+
+  const cost = document.createElement('h5')
+  cost.textContent = `Cost: ${shipment?.cost?.toString()}` as string
+  const provider = document.createElement('h5')
+  provider.textContent = `Provider: ${shipment?.provider}` as string
+  container.append(cost,provider)
+
+  document.querySelector('#shipment-detail')?.append(container)
+}
+
+const getPreferenceId = async (order: Order) => {
   try {
-    const response = await fetch(`${config.server}/api/create_preference`, {
+    const response = await fetch(`${config.serverUri}/api/create_preference`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -71,28 +77,29 @@ const getPreferenceId = async (order:Order) => {
     });
 
     const data = await response.json();
-    
-    return data.id
+
+    return data.id;
   } catch (error) {
-    console.error('Error en la order')
+    console.error("Error en la order");
   }
-}
+};
 
-const payButton =  document.querySelector('#paybutton') as HTMLButtonElement
-payButton.addEventListener('click',async (event:Event)=>{
+renderProductsDetail()
+renderPayerInfo()
+renderShipment()
 
-  const preferenceId = await getPreferenceId({preference,shipment})
+
+const payButton = document.querySelector("#paybutton") as HTMLButtonElement;
+payButton.addEventListener("click", async (event: Event) => {
+  const preferenceId = await getPreferenceId({ preference, shipment });
   const mp = new window.MercadoPago(config.mpPublicKey, {
-    locale: 'es-CL'
+    locale: "es-CL",
   });
 
   mp.checkout({
     preference: {
-      id: preferenceId
+      id: preferenceId,
     },
-    autoOpen:true
-
+    autoOpen: true,
   });
-})
-
-
+});

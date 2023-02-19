@@ -1,4 +1,4 @@
-import { Order } from "./order.model";
+import { Order } from "./models/order.model";
 
 export const order: Order = {
   preference: {
@@ -10,6 +10,10 @@ export const order: Order = {
         street_name: "Antupiren",
         street_number: 400,
         zip_code: "170000",
+      },
+      phone:{
+        area_code:'56',
+        number:99881234
       },
       identification: {
         type: "CI",
