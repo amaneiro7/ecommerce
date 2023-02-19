@@ -13,8 +13,11 @@ export const ProductsDetail = ({preference}: Order) => {
             <div key={item.id}>
               <img src="" alt={item.title} />
               <h3>{item.title}</h3>
-              <span>{item.unit_price}</span>
-              <span>{item.quantity}</span>
+              <div style={{display:'flex',flexDirection:'column'}}>
+
+              <span>Price:{item.unit_price}</span>
+              <span>Quantity: {item.quantity}</span>
+              </div>
             </div>
           );
         })}

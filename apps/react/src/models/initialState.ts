@@ -19,7 +19,7 @@ export const order: Order = {
     items: [
       {
         id: "item-ID-14534",
-        title: "nada",
+        title: "Product 1",
         currency_id: "CLP",
         description: "Descripción del Item",
         quantity: 5,
@@ -27,7 +27,7 @@ export const order: Order = {
       },
       {
         id: "item-ID-564748",
-        title: "titulo del producto",
+        title: "Product 2",
         currency_id: "CLP",
         description: "Descripción del Item",
         quantity: 3,
