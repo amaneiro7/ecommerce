@@ -46,7 +46,7 @@ importers:
       ts-node: 10.9.1_4bewfcp2iebiwuold25d6rgcsy
       typescript: 4.9.5
 
-  apps/vanilla:
+  apps/frontend:
     specifiers:
       typescript: ^4.9.3
       vite: ^4.1.0
