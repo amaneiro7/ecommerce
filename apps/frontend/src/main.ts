@@ -3,6 +3,7 @@ import { Order } from "./models/order.model";
 import { order } from "./initialState";
 
 import "./style.css";
+import { insertLoader } from "./loader";
 
 declare global {
   interface Window {
@@ -24,7 +25,9 @@ const renderProductsDetail = () => {
   const { items } = preference;
   items?.forEach((item) => {
     const container = document.createElement("div");
+    container.className = 'product-card'
     const img = document.createElement("img");
+    img.src = item.picture_url as string
     img.alt = item.title;
     const title = document.createElement("h4");
     title.textContent = item.title;
@@ -32,7 +35,7 @@ const renderProductsDetail = () => {
     price.textContent = `Price: ${item.unit_price.toString()}`;
     const quantity = document.createElement("span");
     quantity.textContent = `Quantity: ${item.quantity.toString()}`;
-    container.append(img, title, price, quantity);
+    container.append(title,img, price, quantity);
     productsDetail.append(container);
   });
   document.querySelector("#products-detail")?.append(productsDetail);
@@ -90,7 +93,10 @@ renderShipment()
 
 const payButton = document.querySelector("#paybutton") as HTMLButtonElement;
 payButton.addEventListener("click", async () => {
+  const loader = insertLoader()
+  payButton.append(loader)
   const preferenceId = await getPreferenceId({ preference, shipment });
+  
   const mp = new window.MercadoPago(config.mpPublicKey, {
     locale: "es-CL",
   });
@@ -101,4 +107,5 @@ payButton.addEventListener("click", async () => {
     },
     autoOpen: true,
   });
+  loader.remove()
 });

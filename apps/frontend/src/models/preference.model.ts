@@ -11,7 +11,8 @@ export interface Preference {
 export interface Item {
     id?:number | string;
     title: string;
-    description:string;
+    picture_url?:string
+    description?:string;
     quantity:number;
     unit_price:number;
     currency_id?: string,
