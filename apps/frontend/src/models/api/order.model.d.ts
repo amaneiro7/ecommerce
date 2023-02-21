@@ -1,4 +1,12 @@
-import { Shipment } from "./shipment.model";
+export interface Order{
+    preference:Preference,
+    shipment?:Shipment
+}
+export interface Shipment {
+
+    cost: number | null;
+    provider: string
+}
 export interface Preference {
     items?:Item[],
     payer?:Payer,

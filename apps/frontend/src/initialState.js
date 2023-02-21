@@ -1,6 +1,5 @@
-import { Order } from "./models/order.model";
 
-export const order: Order = {
+export const order = {
   preference: {
     payer: {
       name: "john",
