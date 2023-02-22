@@ -6,8 +6,7 @@ const downSeed = () => {
 
 }
 
-
 export {
-    upSeed,
-    downSeed
+  upSeed,
+  downSeed
 }

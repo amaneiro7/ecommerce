@@ -1,3 +1,3 @@
 export interface Shipment {
-    cost: number | null;
+  cost: number | null
 }

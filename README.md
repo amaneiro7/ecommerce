@@ -14,5 +14,24 @@ The following implementation is the server that allows processing customer order
 
 ## Usage
 
+## Techs
+
+### Api
+
+- nodejs (typescript)
+- mercadopago
+- mongodb
+- jest
+- jwt
+
+### frontend
+
+- javascript vanilla
+- html
+- css
+- vercel
+- chilexpress
+
+
 In each module you're gonna see the respective documentation,
 **by the moment only api module is complete**

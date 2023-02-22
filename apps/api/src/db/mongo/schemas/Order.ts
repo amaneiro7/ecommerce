@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
-const { Schema } = mongoose;
+import mongoose from 'mongoose'
+const { Schema } = mongoose
 
 const mySchema = new Schema({
-  
+
   preference: {
     items: [{
       id: String,
@@ -10,7 +10,7 @@ const mySchema = new Schema({
       currency_id: String,
       description: String,
       quantity: Number,
-      unit_price: Number,
+      unit_price: Number
     }],
     payer: {
       name: String,
@@ -18,27 +18,27 @@ const mySchema = new Schema({
       email: String,
       phone: {
         area_code: String,
-        number: Number,
+        number: Number
       },
       identification: {
-        type: {type:String},
-        number: String,
+        type: { type: String },
+        number: String
       },
       address: {
         street_name: String,
         street_number: Number,
-        zip_code: String,
-      },
+        zip_code: String
+      }
     },
     shipments: {
-      cost: Number,
-    },
+      cost: Number
+    }
   },
-  shipment :{
-    
+  shipment: {
+
   }
-});
+})
 
-const model = mongoose.model("Orders", mySchema);
+const model = mongoose.model('Orders', mySchema)
 
-export default model;
+export default model
