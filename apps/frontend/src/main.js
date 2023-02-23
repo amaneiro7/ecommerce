@@ -1,14 +1,11 @@
 import "./style.css";
-import { config } from "./config";
 import { order } from "./initialState";
-import { insertLoader } from "./loader";
+import { loadMpLib } from "./loadMpLib";
+import { createButton } from "./paybutton";
 
-const mp_script = document.createElement("script");
-mp_script.src = config.libraryUri;
-document.head.append(mp_script);
+loadMpLib()
 
-const { preference, shipment } = order;
-
+const {preference,shipment} =order
 // render Product detail
 
 const renderProductsDetail = () => {
@@ -60,43 +57,11 @@ const renderShipment = () => {
   document.querySelector("#shipment-detail")?.append(container);
 };
 
-const getPreferenceId = async (order) => {
-  try {
-    const response = await fetch(`${config.serverUri}/api/create_preference`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(order),
-    });
 
-    const data = await response.json();
-
-    return data.id;
-  } catch (error) {
-    console.error("Error en la order");
-  }
-};
 
 renderProductsDetail();
 renderPayerInfo();
 renderShipment();
+createButton("#paybutton", order)
 
-const payButton = document.querySelector("#paybutton");
-payButton.addEventListener("click", async () => {
-  const loader = insertLoader();
-  payButton.append(loader);
-  const preferenceId = await getPreferenceId({ preference, shipment });
 
-  const mp = new window.MercadoPago(config.mpPublicKey, {
-    locale: "es-CL",
-  });
-
-  mp.checkout({
-    preference: {
-      id: preferenceId,
-    },
-    autoOpen: true,
-  });
-  loader.remove();
-});
