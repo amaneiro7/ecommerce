@@ -4,18 +4,42 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Vite + TS</title>
   </head>
+
   <body>
     <div id="app">
-      <nav></nav>
+      <div>
+        <nav id="navbar--destkop"></nav>
+        <nav role="navigation" class="navbar--mobile" id="navbar--mobile">
+          <div class="logo-container">
+            <img class="navbar--mobile__logo" src="" alt="Logo" />
+          </div>
+          <div class="navbar--mobile__menu">
+            <ul>
+              <li>
+                <a href="/" class="link">Home</a>
+              </li>
+              <li>
+                <a href="/checkout" class="link">Checkout</a>
+              </li>
+              <li>
+                <a href="/contact" class="link">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
       <header>
         <h1>Your Order</h1>
       </header>
       <main>
-
         <div id="products-detail">
           <h3>Product Detail</h3>
         </div>
@@ -28,16 +52,23 @@
         <div class="order__buttons-container">
           <!-- <button class="button--primary">Continuar</button> -->
           <button class="button--primary" id="paybutton">PayButton</button>
-  
+
           <!-- <button class="button--secondary">Atras</button> -->
-  
         </div>
       </main>
       <footer>
         <div>
           <h3>Contact</h3>
-          <p>a Lot of times backend is not available for costs and unused, to run and test app, contact me clicking below</p>
-          <button class="button--primary" onclick="window.location.href = 'https://davc93.dev/contact'" >Click Here</button>
+          <p>
+            a Lot of times backend is not available for costs and unused, to run
+            and test app, contact me clicking below
+          </p>
+          <button
+            class="button--primary"
+            onclick="window.location.href = 'https://davc93.dev/contact'"
+          >
+            Click Here
+          </button>
         </div>
       </footer>
     </div>
