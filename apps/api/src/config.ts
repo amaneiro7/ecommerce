@@ -18,9 +18,9 @@ export const config = {
   env,
   accessToken: process.env.MP_ACCESS_TOKEN ?? '',
   port: process.env.PORT ?? 3000,
-  serverDomain: process.env.SERVER_DOMAIN ?? 'http://localhost:3000',
+  apiUrl: process.env.API_URL ?? 'http://localhost:3000',
   integratorId: process.env.MP_INTEGRATOR_ID ?? undefined,
-  siteDomain: process.env.SITE_DOMAIN ?? 'http://localhost:3000',
+  frontendUrl: process.env.FRONTEND_URL ?? 'http://localhost:3000',
   gmail: {
     email: process.env.EMAIL,
     apiKey: process.env.APIKEY

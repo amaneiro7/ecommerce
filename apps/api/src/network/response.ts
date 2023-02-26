@@ -17,8 +17,7 @@ function error (req: Request, res: Response, message: string, status: number) {
 
   res.status(statusCode).send({
     error: true,
-    status,
-    body: message
+    message:statusMessage
   })
 }
 

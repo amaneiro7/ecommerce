@@ -1,13 +1,13 @@
 import express from 'express'
 import cors from 'cors'
-import { config } from './config'
-import { sendEmail } from './mail'
 import { errors } from './network/errors'
 import preferences from './routes/preference'
 import notifications from './routes/notifications'
 import { dbConnection } from './db/mongo'
+import { initMP } from './mercadopago/init'
 
 export const createApp = async () => {
+  initMP()
   await dbConnection()
   const app = express()
 

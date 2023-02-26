@@ -1,35 +1,66 @@
-# API Module
-
 # Usage
 
-Clone repository
+Init Mercado pago service
 
-```sh
-git clone https://github.com/davc93/mercadopago-server-typescript.git
+```ts
+
+import mercadopago from "mercadopago";
+
+import { config } from "../config";
+
+const initMP = () => {
+  try {
+    mercadopago.configurations.setAccessToken(config.accessToken);
+    mercadopago.configure({
+      access_token: config.accessToken,
+      integrator_id: config.integratorId,
+    });
+    console.log("[mercado-pago]: Configuracion exitosa");
+  } catch (error) {}
+    console.error("[mercado-pago]: Problemas con la configuracion")
+};
+
+export { initMP};
+
 ```
 
-Start containers
+create preference from frontend preference
 
-```sh
-docker compose up -d
+```ts
+
+import mercadopago from 'mercadopago'
+
+import { config } from '../config'
+import { Preference } from '../models/preference.model'
+
+
+
+const createPreference = async (preference: Preference) => {
+  const mpPreference: Preference = {
+    ...preference,
+    back_urls: {
+      success: `${config.frontendUrl}/payments/success`,
+      failure: `${config.frontendUrl}/payments/failure`,
+      pending: `${config.frontendUrl}/payments/pending`
+    },
+    auto_return: 'approved',
+    notification_url: `${config.apiUrl}/api/notification_url`,
+    external_reference: ''
+  }
+
+  const response = await mercadopago.preferences.create(mpPreference)
+  const {body} = response.body
+  
+  return {
+    id:body.id
+  }
+}
+
+export {
+  createPreference
+}
+
 
 ```
-Set env variables in .env files taking .env.example
-```
-MP_ACCESS_TOKEN=
-MONGODB_URI=
-PORT=
-```
 
-Install dependencies
-```sh
-npm i
-
-```
-Run in dev mode
-```sh
-
-npm run dev
-```
-
-## To test api use insomnia importing insomnia.json
+after your mp server run, you have create a a endpoint where receive notifications of your orders and all information about it

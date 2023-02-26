@@ -1,5 +1,5 @@
 import { type Order } from '../models/order.model'
-import { createPreference } from '../payments'
+import { createPreference } from '../mercadopago/createPreference'
 import OrderModel from '../db/mongo/schemas/Order'
 
 class PreferenceService {

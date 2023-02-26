@@ -1,5 +1,5 @@
 import express from 'express'
-import { createPreference } from '../payments'
+import { createPreference } from '../mercadopago/createPreference'
 import { PreferenceService } from '../services/preference.service'
 const service = new PreferenceService()
 
