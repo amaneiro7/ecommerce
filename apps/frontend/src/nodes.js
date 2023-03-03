@@ -1,0 +1,1 @@
+export const navbarMobile = document.querySelector('.navbar-container--mobile')

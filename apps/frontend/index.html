@@ -4,18 +4,70 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Vite + TS</title>
   </head>
+
   <body>
     <div id="app">
-      <nav></nav>
+      
+      <div>
+        <nav class="navbar--desktop" id="navbar--destkop">
+          <div class="navbar--desktop__logo">
+            <img src="" alt="Logo">
+          </div>
+          <div class="navbar--desktop__menu">
+            <ul>
+              <li>
+                <a href="/" class="link">Home</a>
+              </li>
+              <li>
+                <a href="/checkout" class="link">Checkout</a>
+              </li>
+              <li>
+                
+                <a href="/contact" class="link">Contact</a>
+                <svg style="
+                margin-block: -4px; cursor: pointer;
+            " xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 1024 1024" class="icon" version="1.1"><path d="M903.232 256l56.768 50.432L512 768 64 306.432 120.768 256 512 659.072z" fill="#000000" /></svg>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <nav role="navigation" class="navbar-container--mobile" id="navbar-container--mobile">
+          <div class="navbar--mobile">
+
+            <div class="logo-container">
+              <!-- <img class="navbar--mobile__logo" src="" alt="Logo" /> -->
+            </div>
+            <button class="toggle-button">
+              <img src="/menu.svg" alt="Menu button">
+            </button>
+          </div>
+          <div class="navbar--mobile__menu">
+            <ul>
+              <li>
+                <a href="/" class="link">Home</a>
+              </li>
+              <li>
+                <a href="/checkout" class="link">Checkout</a>
+              </li>
+              <li>
+                <a href="/contact" class="link">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
       <header>
         <h1>Your Order</h1>
       </header>
       <main>
-
         <div id="products-detail">
           <h3>Product Detail</h3>
         </div>
@@ -28,16 +80,23 @@
         <div class="order__buttons-container">
           <!-- <button class="button--primary">Continuar</button> -->
           <button class="button--primary" id="paybutton">PayButton</button>
-  
+
           <!-- <button class="button--secondary">Atras</button> -->
-  
         </div>
       </main>
       <footer>
         <div>
           <h3>Contact</h3>
-          <p>a Lot of times backend is not available for costs and unused, to run and test app, contact me clicking below</p>
-          <button class="button--primary" onclick="window.location.href = 'https://davc93.dev/contact'" >Click Here</button>
+          <p>
+            a Lot of times backend is not available for costs and unused, to run
+            and test app, contact me clicking below
+          </p>
+          <button
+            class="button--primary"
+            onclick="window.location.href = 'https://davc93.dev/contact'"
+          >
+            Click Here
+          </button>
         </div>
       </footer>
     </div>

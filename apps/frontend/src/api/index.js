@@ -1,3 +1,4 @@
+/// <reference path="../models/index.d.ts" />
 import { config } from "../config";
 
 export const getPreferenceId = async (order) => {
