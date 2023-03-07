@@ -6,12 +6,12 @@ function toggleNavbar() {
     menuMobile.style = ""
     if(menuMobile.classList.contains('active-menu')){
 
-        gsap.from(".navbar--mobile__menu",{
+        gsap.from(menuMobile,{
             x:-400
         })
     } else {
 
-        gsap.to(".navbar--mobile__menu",{
+        gsap.to(menuMobile,{
             x:-400
         })
     }
