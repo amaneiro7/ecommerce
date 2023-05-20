@@ -2,9 +2,6 @@ import "./style.css";
 import { order } from "./initialState";
 import { loadMpLib } from "./loadMpLib";
 import { createButton } from "./paybutton";
-import { navbarMobile } from "./nodes";
-import { toggleNavbar } from "./menuMobile";
-import animation from './animations'
 loadMpLib()
 
 const {preference,shipment} =order
