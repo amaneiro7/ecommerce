@@ -3,12 +3,16 @@ import cors from 'cors'
 import { errors } from './network/errors'
 import preferences from './routes/preference'
 import notifications from './routes/notifications'
-import { dbConnection } from './db/mongo'
+import { dbConnection } from './db'
 import { initMP } from './mercadopago/init'
+import { config } from './config'
 
 export const createApp = async () => {
   initMP()
-  await dbConnection()
+  if (config.mongodbUri) {
+    
+    await dbConnection()
+  }
   const app = express()
 
   app.set('trust proxy', true)

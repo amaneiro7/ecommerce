@@ -1,12 +1,12 @@
 import { type Order } from '../models/order.model'
 import { createPreference } from '../mercadopago/createPreference'
-import OrderModel from '../db/mongo/schemas/Order'
+// import OrderModel from '../db/mongo/schemas/Order'
 
 class PreferenceService {
   async createPreference (order: Order) {
     const { shipment, preference } = order
-    const Model = new OrderModel(order)
-    Model.save()
+    // const Model = new OrderModel(order)
+    // Model.save()
     const preferenceId = await createPreference(preference)
 
     return preferenceId

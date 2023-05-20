@@ -15,17 +15,16 @@ if (envs[env]) {
 dotenv.config(options)
 
 export const config = {
-  env,
-  accessToken: process.env.MP_ACCESS_TOKEN ?? '',
+  accessToken: process.env.MP_ACCESS_TOKEN,
+  integratorId: process.env.MP_INTEGRATOR_ID,
   port: process.env.PORT ?? 3000,
-  apiUrl: process.env.API_URL ?? 'http://localhost:3000',
-  integratorId: process.env.MP_INTEGRATOR_ID ?? undefined,
-  frontendUrl: process.env.FRONTEND_URL ?? 'http://localhost:3000',
+  apiUrl: process.env.API_URL,
+  frontendUrl: process.env.FRONTEND_URL,
   gmail: {
     email: process.env.EMAIL,
     apiKey: process.env.APIKEY
   },
-  mongodbUri: process.env.MONGODB_URI ?? ''
+  mongodbUri: process.env.MONGODB_URI
 }
 
 console.log(config)
