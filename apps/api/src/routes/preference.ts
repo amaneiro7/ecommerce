@@ -9,8 +9,7 @@ router.post('/', async (req, res, next) => {
   try {
     const order = req.body
     const preferenceId = await service.createPreference(order)
-    res.json(preferenceId)
-    console.log(preferenceId)
+    res.json({id:preferenceId})
   } catch (error) {
     next(error)
   }

@@ -5,11 +5,11 @@ import OrderModel from '../db/schemas/Order'
 class PreferenceService {
   async createPreference (order: Order) {
     const { preference } = order
-    const preferenceId = await createPreference(preference)
-    const Model = new OrderModel({...order,preferenceId:preferenceId.id})
+    const response = await createPreference(preference)
+    const Model = new OrderModel({...order,preference:response})
     await Model.save()
-
-    return preferenceId
+    
+    return response.id
   }
 }
 

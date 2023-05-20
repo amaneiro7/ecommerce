@@ -1,6 +1,6 @@
-import { type Shipment } from './shipment.model'
-import { type Preference } from './preference.model'
+import type { Shipment } from "./shipment.model";
+import type { CreatePreferencePayload } from "mercadopago/models/preferences/create-payload.model";
 export interface Order {
-  preference: Preference
-  shipment: Shipment
+  preference: CreatePreferencePayload;
+  shipment: Shipment;
 }
