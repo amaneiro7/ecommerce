@@ -4,26 +4,7 @@ importers:
 
   .: {}
 
-  apps/frontend:
-    dependencies:
-      gsap:
-        specifier: ^3.11.4
-        version: 3.11.4
-    devDependencies:
-      eslint:
-        specifier: ^8.34.0
-        version: 8.34.0
-      eslint-config-airbnb-base:
-        specifier: ^15.0.0
-        version: 15.0.0(eslint-plugin-import@2.27.5)(eslint@8.34.0)
-      eslint-plugin-import:
-        specifier: ^2.27.5
-        version: 2.27.5(@typescript-eslint/parser@5.53.0)(eslint@8.34.0)
-      vite:
-        specifier: ^4.1.3
-        version: 4.1.4
-
-  apps/mercadopago:
+  apps/api:
     dependencies:
       cors:
         specifier: ^2.8.5
@@ -98,6 +79,25 @@ importers:
       typescript:
         specifier: ^4.9.5
         version: 4.9.5
+
+  apps/frontend:
+    dependencies:
+      gsap:
+        specifier: ^3.11.4
+        version: 3.11.4
+    devDependencies:
+      eslint:
+        specifier: ^8.34.0
+        version: 8.34.0
+      eslint-config-airbnb-base:
+        specifier: ^15.0.0
+        version: 15.0.0(eslint-plugin-import@2.27.5)(eslint@8.34.0)
+      eslint-plugin-import:
+        specifier: ^2.27.5
+        version: 2.27.5(@typescript-eslint/parser@5.53.0)(eslint@8.34.0)
+      vite:
+        specifier: ^4.1.3
+        version: 4.1.4
 
 packages:
 
