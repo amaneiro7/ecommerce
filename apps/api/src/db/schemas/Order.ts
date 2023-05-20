@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 const { Schema } = mongoose
 
 const mySchema = new Schema({
-
+  preferenceId:{type:String},
   preference: {
     items: [{
       id: String,

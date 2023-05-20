@@ -21,8 +21,8 @@ export const config = {
   apiUrl: process.env.API_URL,
   frontendUrl: process.env.FRONTEND_URL,
   gmail: {
-    email: process.env.EMAIL,
-    apiKey: process.env.APIKEY
+    email: process.env.GMAIL_EMAIL,
+    apiKey: process.env.GMAIL_APIKEY
   },
   mongodbUri: process.env.MONGODB_URI
 }

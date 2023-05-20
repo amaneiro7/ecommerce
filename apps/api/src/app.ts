@@ -4,22 +4,16 @@ import { errors } from './network/errors'
 import preferences from './routes/preference'
 import notifications from './routes/notifications'
 import { dbConnection } from './db'
-import { initMP } from './mercadopago/init'
-import { config } from './config'
+import { initMP } from './mercadopago'
 
 export const createApp = async () => {
   initMP()
-  if (config.mongodbUri) {
-    
-    await dbConnection()
-  }
+  await dbConnection()  
   const app = express()
-
   app.set('trust proxy', true)
   app.use(express.urlencoded({ extended: false }))
   app.use(express.json())
   app.use(cors())
-
   app.get('/', (req, res, next) => {
     res.send('Hello world')
   })
