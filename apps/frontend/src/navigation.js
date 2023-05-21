@@ -14,10 +14,12 @@ function renderPage() {
   });
   if (!currentPage) {
     navigation("/not-found");
+    return
   }
 
   // add class inactive
   pages.forEach((node) => {
+    
     if (!node.classList.contains(currentPage)) {
       node.classList.add("inactive");
     } else {
