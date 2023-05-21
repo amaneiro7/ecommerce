@@ -1,14 +1,18 @@
 import MercadopagoApi from "./apis/mercadopago";
 import { config } from "./config";
-import { insertLoader } from "./loader";
+import { ButtonLoader } from "./loader";
 
 export const createButton = async (element, order) => {
   const { preference, shipment } = order;
   const payButton = document.querySelector(element);
   payButton.addEventListener("click", async () => {
-    const loader = insertLoader();
+    const loader = ButtonLoader();
     payButton.append(loader);
-    const preferenceId = await MercadopagoApi.getPreferenceId({ preference, shipment });
+
+    const preferenceId = await MercadopagoApi.getPreferenceId({
+      preference,
+      shipment,
+    });
 
     const mp = new window.MercadoPago(config.mpPublicKey, {
       locale: "es-CL",
@@ -20,6 +24,8 @@ export const createButton = async (element, order) => {
       },
       autoOpen: true,
     });
-    loader.remove();
+    setTimeout(() => {
+      loader.remove();
+    }, 1000);
   });
 };

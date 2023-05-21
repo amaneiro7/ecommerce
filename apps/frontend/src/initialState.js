@@ -45,7 +45,7 @@ export const order = {
     },
   },
   shipment: {
-    provider:"chilexpress",
+    provider:"Mercado Envios",
     cost: 5000
   },
 };

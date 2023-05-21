@@ -2,6 +2,8 @@ import "./style.css";
 import { order } from "./initialState";
 import { loadMpLib } from "./loadMpLib";
 import { createButton } from "./paybutton";
+import {renderPage} from './navigation'
+window.addEventListener('DOMContentLoaded',renderPage)
 loadMpLib()
 
 const {preference,shipment} =order
@@ -14,6 +16,8 @@ const renderProductsDetail = () => {
   items?.forEach((item) => {
     const container = document.createElement("div");
     container.className = "product-card";
+    const info = document.createElement("div");
+    
     const img = document.createElement("img");
     img.src = item.picture_url;
     img.alt = item.title;
@@ -23,10 +27,17 @@ const renderProductsDetail = () => {
     price.textContent = `Price: ${item.unit_price.toString()}`;
     const quantity = document.createElement("span");
     quantity.textContent = `Quantity: ${item.quantity.toString()}`;
-    container.append(title, img, price, quantity);
+    info.append(title, price, quantity);
+    container.append(img,info)
     productsDetail.append(container);
   });
-  document.querySelector("#products-detail")?.append(productsDetail);
+  const total = items.reduce((acc,current)=> acc + current.quantity * current.unit_price,0)
+  const totalContainer =  document.createElement('div')
+  totalContainer.style= "margin:30px auto;width:fit-content;"
+  const totalText = document.createElement('span')
+  totalText.textContent = `Total: ${total}`
+  totalContainer.append(totalText)
+  document.querySelector("#products-detail")?.append(productsDetail,totalContainer);
 };
 
 const renderPayerInfo = () => {

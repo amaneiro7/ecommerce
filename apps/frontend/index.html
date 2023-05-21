@@ -4,39 +4,45 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
 
-    <title>Vite + TS</title>
+    <title>Checkout Pro Mercadopago</title>
   </head>
 
   <body>
     <div id="app">
+      <div id="pages">
+        <div class="/not-found"></div>
+        <div class="/">
+          <header>
+            <h1>Your Order</h1>
+          </header>
+          <main style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 2rem;">
+            <div id="products-detail">
+              <h3>Product Detail</h3>
+            </div>
+            <div id="detail" class="detail">
+              <div id="customer-info">
+                <h3>Customer Info</h3>
+              </div>
+              <div id="shipment-detail">
+                <h3>Shipment</h3>
+              </div>
+              <div class="order__buttons-container">
+                <!-- <button class="button--primary">Continuar</button> -->
+                <button class="button--primary" id="paybutton">
+                  PayButton
+                </button>
 
-      <header>
-        <h1>Your Order</h1>
-      </header>
-      <main>
-        <div id="products-detail">
-          <h3>Product Detail</h3>
+                <!-- <button class="button--secondary">Atras</button> -->
+              </div>
+            </div>
+          </main>
         </div>
-        <div id="detail" class="detail">
-          <div id="customer-info">
-            <h3>Customer Info</h3>
-          </div>
-          <div id="shipment-detail">
-            <h3>Shipment</h3>
-          </div>
-          <div class="order__buttons-container">
-            <!-- <button class="button--primary">Continuar</button> -->
-            <button class="button--primary" id="paybutton">PayButton</button>
+        <div class="/success"></div>
+        <div class="/pending"></div>
+        <div class="/failure"></div>
+      </div>
 
-            <!-- <button class="button--secondary">Atras</button> -->
-          </div>
-        </div>
-      </main>
       <!-- <footer>
         <div>
           <h3>Contact</h3>
