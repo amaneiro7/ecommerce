@@ -1,4 +1,4 @@
-import MercadopagoApi from "./apis/mercadopago";
+import {mercadopagoService} from "./services/mercadopago";
 import { config } from "./config";
 import { ButtonLoader } from "./loader";
 
@@ -8,12 +8,12 @@ export const createButton = async (element, order) => {
   payButton.addEventListener("click", async () => {
     const loader = ButtonLoader();
     payButton.append(loader);
-
-    const preferenceId = await MercadopagoApi.getPreferenceId({
+    
+    const preferenceId = await mercadopagoService.getPreferenceId({
       preference,
       shipment,
     });
-
+    
     const mp = new window.MercadoPago(config.mpPublicKey, {
       locale: "es-CL",
     });

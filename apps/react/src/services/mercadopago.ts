@@ -10,7 +10,7 @@ export type Order = {
 class MercadopagoService{
 
 
-    async getPreferenceId(order:Order):Promise<{id:string}>{
+    async getPreferenceId(order:Order):Promise<string>{
         const response = await fetch(`${config.serverUri}/api/create_preference`, {
             method: "POST",
             headers: {
@@ -20,7 +20,7 @@ class MercadopagoService{
           });
         
           const data = await response.json();
-        
+          
           return data.id;
     }
 }

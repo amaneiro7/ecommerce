@@ -1,7 +1,7 @@
 
 import { config } from "../config";
 
-class MercadopagoApi{
+class MercadopagoService{
 
 
     async getPreferenceId(order){
@@ -19,4 +19,4 @@ class MercadopagoApi{
     }
 }
 
-export default new MercadopagoApi()
+export const mercadopagoService = new MercadopagoService()

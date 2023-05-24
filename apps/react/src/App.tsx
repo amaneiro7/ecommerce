@@ -18,10 +18,6 @@ export const order:Order = {
         street_number: 400,
         zip_code: "170000",
       },
-      phone:{
-        area_code:'56',
-        number:"99881234"
-      },
       identification: {
         type: "CI",
         number: "",
@@ -60,10 +56,14 @@ export const order:Order = {
 
 function App() {
   const [preferenceId, setPreferenceId] = React.useState<string | null>(null)
+  const [loading, setLoading] = React.useState(true)
   const getPreference = async () => {
 
     const result = await mercadopagoService.getPreferenceId(order)
-    setPreferenceId(result.id)
+    setPreferenceId(result)
+    console.log(result);
+    
+    setLoading(false)
   }
   
   React.useEffect(()=>{
@@ -72,8 +72,8 @@ function App() {
   return (
     <>
     <main>
-      {preferenceId && (
-        <Wallet initialization={{preferenceId}} />
+      {!loading && (
+        <Wallet initialization={{preferenceId:preferenceId as string}} />
       )}
 
     </main>

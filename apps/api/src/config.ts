@@ -15,6 +15,7 @@ if (envs[env]) {
 dotenv.config(options)
 
 export const config = {
+  env,
   accessToken: process.env.MP_ACCESS_TOKEN,
   integratorId: process.env.MP_INTEGRATOR_ID,
   port: process.env.PORT ?? 3000,
