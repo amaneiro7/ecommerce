@@ -61,8 +61,10 @@ function App() {
     const result = await mercadopagoService.getPreferenceId(order)
     setPreferenceId(result)
     console.log(result);
-    
-    setLoading(false)
+    setTimeout(() => {
+      
+      setLoading(false)
+    }, 2000);
   }
   
   React.useEffect(()=>{
@@ -71,9 +73,9 @@ function App() {
   return (
     <>
     <main>
-      {!loading && (
+      {!loading ? (
         <Wallet initialization={{preferenceId:preferenceId as string}} />
-      )}
+      ): (<div className="custom-loader"></div>)}
 
     </main>
     </>
