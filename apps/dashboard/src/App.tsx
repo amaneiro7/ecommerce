@@ -1,4 +1,3 @@
-import './App.css'
 import { useMachine } from "@xstate/react";
 import { toggleMachine } from './machines/Toggle';
 
