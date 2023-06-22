@@ -91,9 +91,6 @@ p {
 }
 input {
 }
-textarea {
-  @apply font-normal text-base dark:text-white;
-}
 
 li {
   list-style: none;

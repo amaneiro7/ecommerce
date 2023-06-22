@@ -135,9 +135,6 @@ importers:
 
   apps/checkout-vanilla:
     devDependencies:
-      typescript:
-        specifier: ^5.0.2
-        version: 5.0.2
       vite:
         specifier: ^4.3.9
         version: 4.3.9

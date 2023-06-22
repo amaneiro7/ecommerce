@@ -4,10 +4,74 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+
+    <title>Checkout Pro Mercadopago</title>
   </head>
+
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <div id="app">
+      <div id="pages">
+        <div class="/not-found">
+          <header>
+            <h1>Pagina no Encontrada</h1>
+            
+          </header>
+        </div>
+        <div class="/">
+          <header>
+            <h1>Your Order</h1>
+          </header>
+          <main
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-around;
+              gap: 2rem;
+            "
+          >
+            <div id="products-detail">
+              <h3>Product Detail</h3>
+            </div>
+            <div id="detail" class="detail">
+              <div id="customer-info">
+                <h3>Customer Info</h3>
+              </div>
+              <div id="shipment-detail">
+                <h3>Shipment</h3>
+              </div>
+              <div class="order__buttons-container">
+                <!-- <button class="button--primary">Continuar</button> -->
+                <button class="button--primary" id="paybutton">
+                  PayButton
+                </button>
+
+                <!-- <button class="button--secondary">Atras</button> -->
+              </div>
+            </div>
+          </main>
+        </div>
+        <div class="/success"></div>
+        <div class="/pending"></div>
+        <div class="/failure"></div>
+      </div>
+
+      <!-- <footer>
+        <div>
+          <h3>Contact</h3>
+          <p>
+            a Lot of times backend is not available for costs and unused, to run
+            and test app, contact me clicking below
+          </p>
+          <button
+            class="button--primary"
+            onclick="window.location.href = 'https://davc93.dev/contact'"
+          >
+            Click Here
+          </button>
+        </div>
+      </footer> -->
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
