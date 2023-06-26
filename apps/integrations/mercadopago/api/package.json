@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "integrations-mercadopago-api",
   "version": "1.0.0",
   "description": "Server for mercadopago payments",
   "scripts": {
